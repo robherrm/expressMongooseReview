@@ -1,15 +1,15 @@
 
-n setTable(){
-  $.get("", function(chairList){
+function setTable(){
+  $.get("/chairs", function(chairList){
 	
  	$("#chairTable").empty();
   	chairList.forEach(c=>{
 
 	    var openingTr = "<tr>";
-	    var modelTd = "<td class='foo'><input class='modelInput' data-id=" + c._id + " value=" + c.model + "></input></td><td>";
-	    var typeTd = "<input class='typeInput' data-id=" + c._id + " value=" + c.type  + "></input></td>";
-	    var deleteTd = "<td><button data-id=" + c._id + " onclick='deleteData(event)'>delete</button></td>";
-	    var updateTd = "<td><button data-id=" + c._id + " onclick='updateChair(event)'>update</button></td>";
+	    var modelTd = "<td class='foo'><input class='modelInput' data-id=" + c._id + " value='" + c.model + "'></input></td><td>";
+	    var typeTd = "<input class='typeInput' data-id=" + c._id + " value='" + c.type  + "'></input></td>";
+	    var deleteTd = "<td><button class='btn btn-danger btn-sm' data-id=" + c._id + " onclick='deleteData(event)'><i class='fa fa-trash' aria-hidden='true'></i> delete</button></td>";
+      var updateTd = "<td><button class='btn btn-success btn-sm' data-id=" + c._id + " onclick='updateChair(event)'><i class='fa fa-pencil' aria-hidden='true'></i> update</button></td>";
 	    var closingTr = "</tr>";
 	    
 	    $('#chairTable').append(openingTr + modelTd + typeTd + deleteTd + updateTd + closingTr);
@@ -20,7 +20,7 @@ n setTable(){
 function updateChair(clickEvent){
 
   var updateObj = {
-    id: $(clickEvent.srcElement).data().id
+    id: $(clickEvent.srcElement).data().id // ref data-id
   };
 
   $(".typeInput").each(function(i, el){
@@ -36,7 +36,7 @@ function updateChair(clickEvent){
   });
 
   $.ajax({
-    	url: "",
+    	url: "/chairs",
     	type: 'PUT',
     	data:updateObj,
     	success: function(result) {
@@ -46,13 +46,13 @@ function updateChair(clickEvent){
 }
 
 function deleteData(clickEvent){
-    
-  var data =  $(clickEvent.srcElement).data().id
+  var data =  $(clickEvent.srcElement).data().id;
   $.ajax({
-    url: "",
+    url: "/chairs",
     type: 'DELETE',
     data:{id:data},
-	  success: function(result) {
+	  success: function(data) { 
+      console.log(data);
 	    setTable();
 	  }
   });
@@ -65,7 +65,7 @@ function add(){
     type: $('#addType').val()
   };
     
-  $.post( "", newChair, function( data ) {
+  $.post( "/chairs", newChair, function( data ) {
 	  setTable();
   });
 }
@@ -73,33 +73,3 @@ function add(){
 $(document).ready(function(){
   setTable();
 });
-
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-

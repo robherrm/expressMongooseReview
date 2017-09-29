@@ -1,0 +1,26 @@
+{
+  "name": "expressmongoosereview",
+  "version": "1.0.0",
+  "description": "week 2 served.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robherrm/expressMongooseReview.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robherrm/expressMongooseReview/issues"
+  },
+  "homepage": "https://github.com/robherrm/expressMongooseReview#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.0",
+    "mongodb-uri": "^0.9.7",
+    "mongoose": "^4.11.13"
+  }
+}

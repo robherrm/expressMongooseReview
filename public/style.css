@@ -1,0 +1,14 @@
+html { 
+  background: url(http://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/815/offlinehbpl.hbpl.co.uk/news/OMC/F0B8F369-EB2D-4B70-E7464923DA6C802D.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body {
+  background-color: transparent;
+}
+h1, h2 {
+  padding: 1em 0 .2em 0;
+
+}
